@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Sales Assistant · Nived NS</title>
+<meta name="description" content="Qualify leads with a transparent score, get the next step, and draft outreach emails.">
+<meta property="og:title" content="AI Sales Assistant">
+<meta property="og:description" content="Qualify leads, pick the next step, draft outreach. Demo mode runs offline.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="src/sales.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo" aria-hidden="true">◆</span><h1>AI Sales Assistant</h1></div>
+  <div class="top-actions">
+    <span id="mode-badge" class="badge">Demo mode · offline</span>
+    <button type="button" class="ghost small" id="settings-toggle" aria-expanded="false" aria-controls="settings-panel">Settings</button>
+  </div>
+</header>
+<section id="settings-panel" class="card" hidden></section>
+<main>
+  <div class="grid-2">
+    <section class="card" aria-labelledby="qualify-title">
+      <h2 id="qualify-title">Qualify a lead</h2>
+      <form id="qualify-form" novalidate>
+        <div class="form-grid">
+          <div><label for="q-company">Company</label><input type="text" id="q-company" autocomplete="off"></div>
+          <div><label for="q-role">Their role</label><input type="text" id="q-role" placeholder="e.g. Founder, Head of ops" autocomplete="off"></div>
+          <div><label for="q-size">Company size (people)</label><input type="number" id="q-size" min="1" step="1"></div>
+          <div><label for="q-budget">Budget</label><input type="text" id="q-budget" placeholder="e.g. 5k, 2 lakh" autocomplete="off"></div>
+          <div><label for="q-timeline">When do they start?</label><input type="text" id="q-timeline" placeholder="asap, this quarter, 6 months" autocomplete="off"></div>
+          <div class="span-2"><label for="q-need">What problem are they solving?</label><textarea id="q-need" rows="3"></textarea></div>
+        </div>
+        <label class="radio-row" for="q-engaged"><input type="checkbox" id="q-engaged"> They replied or booked a call</label>
+        <div class="row" style="margin-top:10px"><button type="submit" id="qualify-btn">Score this lead</button></div>
+      </form>
+      <div id="score-out" class="score-out" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="card" aria-labelledby="email-title">
+      <h2 id="email-title">Write an outreach email</h2>
+      <form id="email-form" novalidate>
+        <div class="form-grid">
+          <div><label for="e-kind">Type</label><select id="e-kind"></select></div>
+          <div><label for="e-tone">Tone</label><select id="e-tone"></select></div>
+          <div><label for="e-prospect">Prospect name</label><input type="text" id="e-prospect" autocomplete="off"></div>
+          <div><label for="e-company">Their company</label><input type="text" id="e-company" autocomplete="off"></div>
+          <div><label for="e-product">What you sell</label><input type="text" id="e-product" autocomplete="off"></div>
+          <div><label for="e-sender">Your name</label><input type="text" id="e-sender" autocomplete="off"></div>
+          <div class="span-2"><label for="e-pain">Their pain point (optional)</label><input type="text" id="e-pain" autocomplete="off"></div>
+        </div>
+        <div class="row" style="margin-top:10px"><button type="submit" id="email-btn">Draft email</button></div>
+      </form>
+      <div id="email-out" class="email-out" role="status" aria-live="polite"></div>
+    </section>
+  </div>
+</main>
+<footer class="foot">Built by Nived NS</footer>
+<script type="module" src="src/app.js"></script>
+</body>
+</html>

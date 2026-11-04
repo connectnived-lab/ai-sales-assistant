@@ -1,0 +1,14 @@
+{
+  "tests_passed": 32,
+  "e2e_passed": true,
+  "verified": [
+    "node --test unit suite: 32/32 pass (scoring, parsing, next steps, email templates, model prompt and parsing, llm, settings)",
+    "Playwright smoke (python3, local Chromium): 24 checks across 390x844 and 1440x900 pass: qualify, draft, live qualify and live email via mocked endpoint, no console errors, no horizontal scroll",
+    "desktop screenshot viewed",
+    "mobile screenshot viewed by eye (form and draft at 390x844)"
+  ],
+  "unverified": [
+    "live mode against a real external endpoint (mocked only)",
+    "GitHub Actions CI run (not executed here)"
+  ]
+}
