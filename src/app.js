@@ -38,7 +38,7 @@ async function qualify(event) {
   const out = $('#score-out');
   const result = s.scoreLead(lead);
   const next = s.nextStepFor(result, lead);
-  out.replaceChildren(
+  out.replaceChildren(...[
     el('div', { class: 'score' }, [el('b', { id: 'score-value', text: String(result.score) }), el('span', { class: `tier ${result.tier}`, id: 'score-tier', text: result.tier }), el('span', { class: 'hint', text: 'out of 100' })]),
     el('p', { id: 'next-step' }, [el('strong', { text: 'Next: ' }), next]),
     el('p', { class: 'hint', text: 'Why:' }),
@@ -46,7 +46,7 @@ async function qualify(event) {
     result.gaps.length ? el('p', { class: 'hint', text: 'Ask about:' }) : null,
     result.gaps.length ? el('ul', { id: 'gaps' }, result.gaps.map((g) => el('li', { text: g }))) : null,
     el('p', { id: 'model-note', class: 'hint', text: '' }),
-  );
+  ].filter(Boolean));
   if (isLive(settings)) {
     const note = $('#model-note');
     note.textContent = 'Asking your model for a view…';
